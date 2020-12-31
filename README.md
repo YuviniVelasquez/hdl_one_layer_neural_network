@@ -36,7 +36,7 @@ Machine Learning can be summarized as the extraction of features from data in or
 
 Artificial Neural Network (ANN) is an approach of Machine Learning inspired by the neural networks in biological systems. These algorithms are modeled based on a collection of connected perceptions as in a biological brain and can be seen in Figure 1. These networks “learn” to perform tasks through a training process. During the training process, the associated weights of each connection can be adjusted to better match the desired result as training proceeds
 
-<div style="text-align:center"><img src="Images/neuron_perceptron.jpg" /></div>
+<div style="text-align:center"><img align="center" src="Images/neuron_perceptron.jpg"  /></div>
 <div style="text-align:center">Neuron and Perceptron</div>
 
 ### 1.2 Mathematical Representation of an Artificial Neural Network
@@ -144,7 +144,7 @@ SRAMs are organized as 16-bit wide word addressable random access synchronous me
     <td>Timing Diagram and for SRAM in test fixture</td>
   </tr>
  </table>
- 
+
 ## 4. Technical Implementation
 
 The design has a defined difference between data path, described in microarchitecture, and control path. The control path considers the interaction between the SRAMs, the setup of values for the current run, a control for MAC, a state for transition to next set of inputs, and an ending state. This control path can be seen in the FSM and can be seen in Figure 12.
