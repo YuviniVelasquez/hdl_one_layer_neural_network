@@ -1,0 +1,11 @@
+
+| ![Neuron and Perceptron](Images/neuron_perceptron.jpg) | 
+|:--:| 
+| *Neuron and Perceptron* |
+
+
+
+<figure >
+  <img src="Images/neuron_perceptron.jpg" alt="Neuron and Perceptron" class="center">
+  <figcaption style="text-align:center">Neuron and Perceptron</figcaption>
+</figure>
