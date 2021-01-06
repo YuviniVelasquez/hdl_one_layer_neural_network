@@ -9,7 +9,7 @@ This approach intended to use the parallelism avaiable in FPGAs and ASICs. Addit
 
 The achievement of this design is that it is a synthesizable design that runs at a clock speed twice as fast than given in the test bench thanks to the use of parallelism. The performance and the area has been optimized and the results are presented in this repository
 
-# Table of Contents
+# Table of Content
 1. [Introduction](#introduction)
     1. [Machine Learning and Artificial Neaural Network](#introsub1)
     2. [Mathematical Representation of an Artificial Neural Network](#introsub2)
@@ -24,8 +24,8 @@ The achievement of this design is that it is a synthesizable design that runs at
     2. [SRAM setup](#interfacespecsub2)
 4. [Technical Implementation](#techimplementation)
 5. [Tools Setup, Debug, and Verification](#debugver)
-6. [Results Achieved](#desugnresults)
-7. [Conclusions](conclusions)
+6. [Results Achieved](#designresults)
+7. [Conclusions](#conclusions)
 
 
 ## 1. Introduction <a name="introduction"></a>
@@ -39,7 +39,7 @@ Artificial Neural Network (ANN) is an approach of Machine Learning inspired by t
 
 | ![Neuron and Perceptron](Images/neuron_perceptron.jpg) | 
 |:--:| 
-| *Neuron and Perceptron* |
+| *Figure 1: Neuron and Perceptron* |
 
 
 ### 1.2 Mathematical Representation of an Artificial Neural Network <a name="introsub2"></a>
@@ -48,7 +48,7 @@ A connection of perceptions, which include inputs and weights, can be represente
 
 | ![Neural Network and Matrix Equivalent](Images/nn_matrix.jpg) | 
 |:--:| 
-| *Neural Network and Matrix Equivalent* |
+| *Figure 2: Neural Network and Matrix Equivalent* |
 
 ### 1.3 Key specifications and Constraints <a name="introsub3"></a>
 
@@ -71,20 +71,20 @@ Furthermore, there will be an explanation of the Micro-Architecture design, the 
 The addition of a continuous multiplication takes advantage of the clock time and parallelism available in hardware as seen in Figure 3. The current design implements a MAC with two parallel input and weight multipliers using the design constraints as feature for faster summation.
 
 <div style="text-align:center"><img src="Images/summation.jpg" /></div>
-<div style="text-align:center">Summation to obtain Hyperparameter with proposed design</div>
+<div style="text-align:center">Figure 3: Summation to obtain Hyperparameter with proposed design</div>
 
 ### 2.2 High Level Architecture and Schematics <a name="microarchsub2"></a>
 
 The described hardware algorithm is composed of one MAC (Figure 4). Additional data paths for this design are selector lines to read from the input and weight SRAMs (Figure 5), selector lines to write to the output SRAM, two counters for multiplication and convolutions (Figure 6), a flip flop to collect the number of inputs to read, a flip flop to set a reference address.
 
 <div style="text-align:center"><img src="Images/selector_mac.jpg" /></div>
-<div style="text-align:center">Data and Weight Selection, and Multiplier Accumulator</div>
+<div style="text-align:center">Figure 4: Data and Weight Selection, and Multiplier Accumulator</div>
 
 <div style="text-align:center"><img src="Images/input_weight_mux.jpg" /></div>
-<div style="text-align:center">Input and Weight Mux for Register Control</div>
+<div style="text-align:center">Figure 5: Input and Weight Mux for Register Control</div>
 
 <div style="text-align:center"><img src="Images/conv_mult_counter.jpg" /></div>
-<div style="text-align:center">Convolution and Multiplication Counter</div>
+<div style="text-align:center">Figure 6: Convolution and Multiplication Counter</div>
 
 Additional important features of the presented design are that it only uses one clock to run the design to avoid different time domain conversion, one edge to activate the control path, and only flip flops to avoid any unwanted latches and prevent hold violations
 
@@ -158,16 +158,15 @@ The design has a defined difference between data path, described in microarchite
 
 ## 5. Tools Setup, Debug, and Verification <a name="debugdver"></a>
 
-The softwares used for this project were [VS Code](https://code.visualstudio.com/download) as code editor and added a Verilog-HDL Extension, [Mentor Graphics Modelsim Student Version](https://www.mentor.com/company/higher_ed/modelsim-student-edition) for simulation and Synopsys Design Vision Compiler enviroment for synthesis.
 
 Different tools were used to debug and verify the design. The first method used was to hand draw the data paths needed for this design. This will help in debugging behavior that was wrongly coded. Also, a hand drawn timing diagram was used to compare to the simulated diagram given by the test bench from Modelsim. 
 
-The main verification method was timing diagrams where it can be seen what is received from the SRAMs, what is the selection, multiplication, and accumulation outputs, and also the activation and deactivation of multiplexers that control registers by their enabling signal which can be seen in Figure 11.
+The main verification method was timing diagrams where it can be seen what is received from the SRAMs, what is the selection, multiplication, accumulation outputs, activation of multiplexers to control registers which can be seen in Figure 11.
  
-A final report of the run was given when the test bench was properly simulated. An output of a proper run can be seen in Figure 13.
+A final report of the run was given when the test bench was properly simulated. An output of a proper run can be seen in Figure 14.
 
 <div style="text-align:center"><img src="Images/testbench_log.jpg"/></div>
-<div style="text-align:center">Figure 13: Transcript Returned by the Test Bench</div>
+<div style="text-align:center">Figure 14: Transcript Returned by the Test Bench</div>
 
 ## 6. Design Results <a name="designresults"></a>
 
